@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 class SongDetail extends Component {
        
     render(){
-        console.log(this.props)
+        console.log(this.props);
         
         if(!this.props.song)
             return (<div>Select A Song Please !</div>);

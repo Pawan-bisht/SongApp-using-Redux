@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import { selectSong } from "../actions";
 import { connect } from 'react-redux';
+import { getSongs } from '../actions';
 class SongList extends Component {
 
+    componentDidMount()
+    {
+        this.props.getSongs();
+    }
     renderList = ()=>{
         return this.props.songs.map(song => {
             return (
@@ -10,7 +15,7 @@ class SongList extends Component {
                     <div className="right floated content">
                         <button 
                         className="ui button primary"
-                        onClick = {() =>this.props.selectSong(song)}>
+                        onClick = { () =>this.props.selectSong(song) }>
                             Select
                         </button>
                     </div>
@@ -41,7 +46,7 @@ const mapStateToProps = (state) => {
     */ 
     //All of the data and reducers are inside of redux store
      console.log(state);
-    return { songs: state.songs };
+    return { songs: state.songsl };
 }
 
-export default connect(mapStateToProps, { selectSong })(SongList);
+export default connect(mapStateToProps, { selectSong, getSongs })(SongList);

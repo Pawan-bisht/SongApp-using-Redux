@@ -1,23 +1,8 @@
 import { combineReducers } from 'redux';
-const songsReducer = () => {
-    return [
-        {
-            title:"No scrubs",
-            duration:"4:05"
-        },
-        {
-            title:"Starboy",
-            duration:"6:00"
-        },
-        {
-            title:"Without you",
-            duration:"3:20"
-        },
-        {
-            title:"Godzilla",
-            duration:"5:15"
-        }
-    ];
+const songsReducer = (allSongs = [], action) => {
+    if(action.type === "ALL_SONGS")
+        return action.payload;
+    return allSongs;    
 }
 
 const selectedSongReducer = (selectedSong = null,action) =>{
@@ -31,6 +16,6 @@ const selectedSongReducer = (selectedSong = null,action) =>{
 }
 
 export default combineReducers({
-    songs:songsReducer,
+    songsl:songsReducer,
     selectedSong:selectedSongReducer
 })
