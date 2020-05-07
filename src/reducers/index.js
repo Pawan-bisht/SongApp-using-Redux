@@ -16,6 +16,6 @@ const selectedSongReducer = (selectedSong = null,action) =>{
 }
 
 export default combineReducers({
-    songsl:songsReducer,
+    songsl:songsReducer,              //ThIS IS OUR STATE OBJECT
     selectedSong:selectedSongReducer
 })
